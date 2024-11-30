@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { RecipeListProps } from "../App";
+import { formatString } from '../utils/stringUtils';
 
 export default function RecipeRandomizer({ recipes }: RecipeListProps) {
   const [randomRecipe, setRandomRecipe] = useState('');
@@ -15,7 +16,7 @@ export default function RecipeRandomizer({ recipes }: RecipeListProps) {
     const num = Math.floor(Math.random() * recipes.length);
 
     if (recipes[num] !== randomRecipe) {
-      setRandomRecipe(recipes[num]);
+      setRandomRecipe(formatString(recipes[num]));
     } else {
       getRecipe();
     }
